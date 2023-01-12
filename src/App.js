@@ -21,8 +21,8 @@ function App() {
         enteredAge.toString().length === 0) {
           setIsEmpty(true);
     } else {
-      setUsersList((prevState) => {
-        return([user, ...prevState]);
+      setUsersList((prevUsersList) => {
+        return([user, ...prevUsersList]);
       });
     }
     
