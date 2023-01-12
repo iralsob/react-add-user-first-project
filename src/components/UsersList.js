@@ -1,17 +1,21 @@
 import React from "react";
 import User from "./User";
+import Card from "./UI/Card";
+
+import style from './UsersList.module.css'
 
 const UsersList = (props) => {
-  console.log(props.data);
 
   return (
-    <ul>
-      {props.data.map((user) => (
-        <User key={Math.random()} 
-            name={user.name} 
-            age={user.age} />
-      ))}
-    </ul>
+    <Card className={style.users}>
+      <ul>
+        {props.data.map((user) => (
+          <User key={Math.random()} 
+              name={user.name} 
+              age={user.age} />
+        ))}
+      </ul>
+    </Card>
   );
 };
 
