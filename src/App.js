@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "./components/Card";
 import UsersList from "./components/UsersList";
 
 function App() {
-  const usersList = [{ name: "Ira", age: "30" }];
+  const [usersList, setUsersList] = useState([]);
+  const enteredUserHandler = (user) => {
+    setUsersList((prevState) => {
+      return([user, ...prevState]);
+    });
+  }
   return (
     <div>
-      <Card></Card>
+      <Card onEnteredUser={enteredUserHandler}></Card>
       <UsersList data={usersList} />
     </div>
   );
