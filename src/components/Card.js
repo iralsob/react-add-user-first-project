@@ -11,6 +11,9 @@ const Card = (props) => {
         name: userNameValue.current.value, 
         age:userAgeValue.current.value
     });
+
+    userNameValue.current.value = '';
+    userAgeValue.current.value = '';
   };
 
   return (
