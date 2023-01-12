@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Card from "./UI/Card";
+import Button from "./UI/Button";
 
 import style from "./AddUser.module.css";
 
@@ -38,7 +39,7 @@ const AddUser = (props) => {
           ref={userAgeValue}
           onChange={changeHandler}
         />
-        <button type='submit'>Add User</button>
+        <Button type='submit'>Add User</Button>
       </form>
     </Card>
   );
