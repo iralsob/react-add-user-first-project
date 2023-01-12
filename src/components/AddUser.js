@@ -11,11 +11,19 @@ const AddUser = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
+    const enteredName = userNameValue.current.value;
+    const enteredAge = userAgeValue.current.value;
+
     props.onEnteredUser({
       name: userNameValue.current.value,
-      age: userAgeValue.current.value,
+      age: userAgeValue.current.value
     });
 
+    if (enteredName.trim().length === 0 
+      || enteredAge.length ===0
+      || +enteredAge < 0) {
+        return;
+    }
     userNameValue.current.value = "";
     userAgeValue.current.value = "";
   };
