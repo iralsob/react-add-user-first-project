@@ -9,3 +9,10 @@ html {
 body {
   margin: 0;
 }
+
+.error {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: red;
+}

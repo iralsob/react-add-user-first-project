@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Card from "./components/Card";
+import AddUser from "./components/AddUser";
 import UsersList from "./components/UsersList";
 import EmptyInputMsg from "./components/Errors/EmptyInputMsg";
 import WrongNumberMsg from "./components/Errors/WrongNumberMsg";
@@ -38,8 +38,9 @@ function App() {
     <div>
       {isEmpty && <EmptyInputMsg/>}
       {isWrong && <WrongNumberMsg/>}
-      <Card onEnteredUser={enteredUserHandler}
-        onStartEntering = {startEnterigHandler}></Card>
+      <AddUser onEnteredUser={enteredUserHandler}
+        onStartEntering = {startEnterigHandler}
+        ></AddUser>
       <UsersList data={usersList} />
     </div>
   );

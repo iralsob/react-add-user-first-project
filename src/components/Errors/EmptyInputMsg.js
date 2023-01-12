@@ -2,7 +2,7 @@ import React from "react";
 
 const EmptyInputMsg = () => {
     return(
-        <p>Empty!</p>
+        <p className="error">Empty!</p>
     );
 }
 
