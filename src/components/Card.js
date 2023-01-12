@@ -15,14 +15,22 @@ const Card = (props) => {
     userNameValue.current.value = '';
     userAgeValue.current.value = '';
   };
-
+  const changeHandler = () => {
+    props.onStartEntering();
+  }
   return (
     <div className='card'>
       <form onSubmit={submitHandler}>
         <label>User Name</label>
-        <input type='text' ref={userNameValue}/>
+        <input 
+            type='text' 
+            ref={userNameValue} 
+            onChange={changeHandler}/>
         <label>Age</label>
-        <input type='number' ref={userAgeValue}/>
+        <input 
+            type='number' 
+            ref={userAgeValue}
+            onChange={changeHandler}/>
         <button type='submit'>Add User</button>
       </form>
     </div>

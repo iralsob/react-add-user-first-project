@@ -1,17 +1,45 @@
 import React, {useState} from "react";
 import Card from "./components/Card";
 import UsersList from "./components/UsersList";
+import EmptyInputMsg from "./components/Errors/EmptyInputMsg";
+import WrongNumberMsg from "./components/Errors/WrongNumberMsg";
 
 function App() {
   const [usersList, setUsersList] = useState([]);
+
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
+
   const enteredUserHandler = (user) => {
-    setUsersList((prevState) => {
-      return([user, ...prevState]);
-    });
+
+    const enteredName = user.name;
+    const enteredAge = user.age;
+    
+    if (enteredAge < 0){
+      setIsWrong(true);
+    } else if (enteredName.length === 0 ||
+        enteredAge.toString().length === 0) {
+          setIsEmpty(true);
+    } else {
+      setUsersList((prevState) => {
+        return([user, ...prevState]);
+      });
+    }
+    
   }
+
+  const startEnterigHandler = () => {
+    setIsEmpty(false);
+    setIsWrong(false);
+  }
+  
+
   return (
     <div>
-      <Card onEnteredUser={enteredUserHandler}></Card>
+      {isEmpty && <EmptyInputMsg/>}
+      {isWrong && <WrongNumberMsg/>}
+      <Card onEnteredUser={enteredUserHandler}
+        onStartEntering = {startEnterigHandler}></Card>
       <UsersList data={usersList} />
     </div>
   );
